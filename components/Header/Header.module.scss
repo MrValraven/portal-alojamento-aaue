@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 25px;
+  margin-bottom: 20px;
+
+  .logo {
+    img {
+      width: 50px;
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+
+      li {
+        padding: 10px;
+        margin: 10px 20px;
+      }
+    }
+  }
+}
