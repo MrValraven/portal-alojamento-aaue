@@ -54,7 +54,6 @@ const AnunciosOverview = () => {
             numberOfRooms={anuncio.numero_quartos_disponiveis}
           />
         ))}
-        ;
       </div>
     </div>
   );

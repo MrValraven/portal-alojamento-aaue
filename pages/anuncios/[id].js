@@ -26,8 +26,21 @@ export const getStaticProps = async (context) => {
   };
 }; */
 
+import { useRouter } from "next/router";
+import AnuncioPage from "../../components/AnuncioPage/AnuncioPage";
+
+import listings from "../../static/mockAnuncios.json";
+
 const PostDetails = ({ post }) => {
-  return <div></div>;
+  const router = useRouter();
+
+  const currentAnuncio = listings[router.query.id - 1];
+  console.log(currentAnuncio);
+  return (
+    <div>
+      <AnuncioPage anuncio={currentAnuncio} />
+    </div>
+  );
 };
 
 export default PostDetails;

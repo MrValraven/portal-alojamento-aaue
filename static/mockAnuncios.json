@@ -11,7 +11,9 @@
     "inquilinos": "estudante/trabalhador",
     "data_de_publicacao": "14 Fevereiro, 2022",
     "descricao": "Alugo quarto no centro histórico a 5 minutos da universidade de Évora",
-    "fotos": [],
+    "fotos": [
+      "https://img3.idealista.pt/blur/WEB_DETAIL-XL-L/0/id.pro.pt.image.master/0b/b5/07/163996366.jpg"
+    ],
     "mobilado": true,
     "sala": true,
     "numero_quartos_disponiveis": 1,
