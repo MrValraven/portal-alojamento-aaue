@@ -1,39 +1,60 @@
 import React from "react";
-
+import { useRouter } from "next/router";
 import styles from "./ListingCard.module.scss";
 
-const ListingCard = () => {
+const ListingCard = ({
+  uuid,
+  title,
+  address,
+  numberOfRooms,
+  numberOfBathrooms,
+  price,
+  type,
+}) => {
+  const router = useRouter();
+
+  const navigateToOtherPage = () => {
+    if (uuid) {
+      router.push({
+        pathname: "/anuncios/[id]",
+        query: { id: uuid },
+      });
+    }
+  };
+
   return (
-    <div className={styles.listingCard}>
+    <div className={styles.listingCard} onClick={navigateToOtherPage}>
       <img
         src="https://img3.idealista.pt/blur/WEB_DETAIL-XL-L/0/id.pro.pt.image.master/0b/b5/07/163996366.jpg"
         alt="room image"
         width="250"
       />
+      <div className={styles.titleAndSubtitle}>
+        <h2>{title}</h2>
+        <p className={styles.address}>{address}</p>
+      </div>
       <div className={styles.listingText}>
-        <h2>T6 no centro histórico de Évora</h2>
-        <p className={styles.address}>Rua Gabriel Vitor do Monte Pereira</p>
         <div className={styles.assets}>
           <div className={styles.details}>
             <div className={styles.maxDetails}>
               <img src="./assets/bed.svg" alt="" />
-              <p>6</p>
+              <p>{numberOfRooms}</p>
             </div>
-            <p>quartos</p>
+            <p>quarto{numberOfRooms > 1 ? "s" : ""}</p>
           </div>
           <div className={styles.details}>
             <div className={styles.maxDetails}>
               <img src="./assets/bathroom.svg" alt="" />
-              <p>3</p>
+              <p>{numberOfBathrooms}</p>
             </div>
-            <p>WCs</p>
+            <p>WC{numberOfBathrooms > 1 ? "s" : ""}</p>
           </div>
           <div className={styles.details}>
             <div className={styles.maxDetails}>
               <img src="./assets/preco.svg" alt="" />
-              <p>250</p>
+              <p>{price}</p>
             </div>
-            <p>/ quarto</p>
+            <p>{type === "quarto" ? "/ quarto" : "total"}</p>
           </div>
         </div>
       </div>

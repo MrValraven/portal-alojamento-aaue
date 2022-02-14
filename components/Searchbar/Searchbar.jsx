@@ -6,7 +6,7 @@ const Searchbar = () => {
   const [searchQueryParameters, setSearchQueryParameters] = useState({
     type: "quarto",
     location: "centro",
-    tipology: "t0",
+    tipology: "t4",
     price: 250,
   });
 
@@ -23,9 +23,7 @@ const Searchbar = () => {
     setIsBeingHovered(() => !isBeingHovered);
   };
 
-  useEffect(() => {
-    console.log(isBeingHovered);
-  }, [isBeingHovered]);
+  useEffect(() => {}, [isBeingHovered]);
 
   return (
     <>
@@ -72,18 +70,25 @@ const Searchbar = () => {
           </select>
         </div>
         <div>
-          <label htmlFor="price">Preço</label>
+          <label htmlFor="price">
+            Preço{" "}
+            <span>
+              {" "}
+              | {searchQueryParameters.type === "quarto" ? 100 : 200} até{" "}
+              {searchQueryParameters.price}€
+            </span>
+          </label>
           <div className={styles.price}>
             <input
               name="price"
               type="range"
-              min="100"
-              max="400"
+              min={searchQueryParameters.type === "quarto" ? 100 : 200}
+              max={searchQueryParameters.type === "quarto" ? 400 : 1000}
+              value={searchQueryParameters.price}
               className="slider"
               id="myRange"
               onChange={(e) => handleChange(e)}
             />
-            <p>100 até {searchQueryParameters.price}€</p>
           </div>
         </div>
         <div

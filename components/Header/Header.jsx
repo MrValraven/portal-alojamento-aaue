@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import Link from "next/link";
 
 import styles from "./Header.module.scss";
+import Modal from "../Modal/Modal";
 
 const Header = () => {
+  const [activateModal, setActivateModal] = useState(false);
+
+  const toggleModal = () => {
+    setActivateModal(!activateModal);
+  };
+
+  useEffect(() => {
+    if (activateModal) {
+      document.querySelector("body").classList.add("modalIsToggled");
+    } else {
+      document.querySelector("body").classList.remove("modalIsToggled");
+    }
+  }, [activateModal]);
+
   return (
     <header className={styles.header}>
       <Link href="/" className={styles.navItem}>
@@ -21,7 +36,8 @@ const Header = () => {
           <Link href="/anuncios" className={styles.navItem}>
             Publicações
           </Link>
-          <li>Login / Registrar</li>
+          <li onClick={toggleModal}>Login / Registrar</li>
+          {activateModal ? <Modal toggleModal={toggleModal} /> : null}
         </ul>
       </nav>
     </header>

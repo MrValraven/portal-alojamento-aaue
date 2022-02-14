@@ -14,7 +14,7 @@ const Hero = () => {
           seja perfeita para ti{" "}
         </h1>
         <p>Procura já entre os anuncios de casas e quartos para arrendar</p>
-        <Button />
+        <Button buttonText="Ver anúncios" disabled={false} url="/anuncios" />
       </div>
       <div className={styles.heroImg}>
         <img src="./assets/giraldo.jpg" alt="" />

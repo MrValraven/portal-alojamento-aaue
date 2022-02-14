@@ -1,0 +1,12 @@
+.anunciosOverview {
+  margin-top: 100px;
+
+  .anunciosBoard {
+    display: flex;
+    flex-wrap: wrap;
+
+    & > div {
+      margin-right: 25px;
+    }
+  }
+}

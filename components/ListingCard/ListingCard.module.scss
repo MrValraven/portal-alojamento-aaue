@@ -2,6 +2,7 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 23%;
   margin-top: 50px;
   border-radius: 10px;
@@ -16,10 +17,18 @@
     width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .titleAndSubtitle {
+    padding: 0px 10px 0px 10px;
   }
 
   .listingText {
     padding: 10px 10px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }
 
