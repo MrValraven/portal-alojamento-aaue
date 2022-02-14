@@ -43,11 +43,24 @@ const Form = () => {
   return (
     <form onSubmit={(e) => e.preventDefault()} className={styles.form}>
       <label htmlFor="email">Email</label>
-      <input type="email" name="email" onChange={handleChange} />
+      <input
+        type="email"
+        name="email"
+        placeholder="nome@email.com"
+        onChange={handleChange}
+      />
       <label htmlFor="password">Password</label>
       <div>
-        <input type="password" name="password" onChange={handleChange} />
-        <span onClick={handleShowPassword}>Mostrar</span>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+        />
+        <span onClick={handleShowPassword}>
+          <img src="./assets/open-eye.svg" alt="" />
+          <p>Mostrar</p>
+        </span>
       </div>
       <p className={styles.forgotPassword}>Esqueceu-se da palavra-passe?</p>
       <Button

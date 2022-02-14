@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "../Form/Form";
+import GoogleButton from "../GoogleButton/GoogleButton";
 
 import styles from "./Modal.module.scss";
 
@@ -20,6 +21,14 @@ const Modal = ({ toggleModal }) => {
         </div>
         <div className={styles.loginContainer}>
           <h1>Iniciar sessão</h1>
+          <div className={styles.googleContainer}>
+            <GoogleButton />
+            <div className={styles.orContainer}>
+              <hr />
+              <p>Ou</p>
+              <hr />
+            </div>
+          </div>
           <Form />
         </div>
       </div>
