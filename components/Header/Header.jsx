@@ -22,6 +22,7 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
+      {activateModal ? <Modal toggleModal={toggleModal} /> : null}
       <Link href="/" className={styles.navItem}>
         <div className={styles.logo}>
           <img src="/assets/logo.svg" alt="" />
@@ -29,15 +30,11 @@ const Header = () => {
         </div>
       </Link>
       <nav>
-        <ul>
-          <Link href="/" className={styles.navItem}>
-            Home
-          </Link>
-          <Link href="/anuncios" className={styles.navItem}>
-            Publicações
-          </Link>
+        <ul className={styles.navbar}>
+          <Link href="/">Home</Link>
+          <Link href="/anuncios">Publicações</Link>
           <li onClick={toggleModal}>Login / Registrar</li>
-          {activateModal ? <Modal toggleModal={toggleModal} /> : null}
+          <Link href="/anuncios/criar-anuncio">Criar Anúncio</Link>
         </ul>
       </nav>
     </header>

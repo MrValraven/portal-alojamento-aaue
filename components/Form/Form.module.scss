@@ -10,7 +10,27 @@
     padding-left: 5px;
   }
 
+  div {
+    width: 100%;
+    position: relative;
+
+    span {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  }
+
   input {
+    width: 100%;
     padding: 12px 10px;
     margin-bottom: 20px;
     font-size: 18px;
@@ -18,9 +38,29 @@
     border: none;
     outline: none;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  }
 
-    &:nth-child(4) {
-      margin-bottom: 100px;
+  .forgotPassword {
+    font-weight: bold;
+    color: rgb(40, 40, 144);
+    margin-bottom: 30px;
+    padding-left: 5px;
+    cursor: pointer;
+  }
+
+  .disclaimer {
+    margin-top: 20px;
+    color: #6d6d6d;
+
+    a {
+      color: black;
+      border-bottom: 1px solid #6d6d6d;
+      opacity: 0.7;
+      transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 }
