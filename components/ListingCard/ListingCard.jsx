@@ -17,7 +17,7 @@ const ListingCard = () => {
           <div className={styles.details}>
             <div className={styles.maxDetails}>
               <img src="./assets/bed.svg" alt="" />
-              <p>3</p>
+              <p>6</p>
             </div>
             <p>quartos</p>
           </div>

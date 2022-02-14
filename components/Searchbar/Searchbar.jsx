@@ -1,23 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-import styles from "./Searchbar.module.css";
+import styles from "./Searchbar.module.scss";
 
 const Searchbar = () => {
-  const [searchQueryParameters, setsearchQueryParameters] = useState({});
+  const [searchQueryParameters, setSearchQueryParameters] = useState({
+    type: "quarto",
+    location: "centro",
+    tipology: "t0",
+    price: 250,
+  });
+
+  const [isBeingHovered, setIsBeingHovered] = useState(false);
+
+  const handleChange = (e) => {
+    setSearchQueryParameters((previousState) => ({
+      ...previousState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleHover = () => {
+    setIsBeingHovered(() => !isBeingHovered);
+  };
+
+  useEffect(() => {
+    console.log(isBeingHovered);
+  }, [isBeingHovered]);
 
   return (
     <>
       <div className={styles.searchbar}>
-        <div className="localizacao">
+        <div>
+          <label htmlFor="tipo">Tipo</label>
+          <select
+            name="type"
+            id="tipo"
+            value={searchQueryParameters.type}
+            onChange={(e) => handleChange(e)}
+          >
+            <option value="casa">Casa</option>
+            <option value="quarto">Quarto</option>
+          </select>
+        </div>
+        <div>
           <label htmlFor="localizacao">Localização</label>
-          <select name="localizacao" id="localizacao">
+          <select
+            name="location"
+            id="localizacao"
+            value={searchQueryParameters.location}
+            onChange={(e) => handleChange(e)}
+          >
             <option value="centro">Centro Histórico</option>
             <option value="fora">Fora das muralhas</option>
           </select>
         </div>
-        <div className="tipologia">
+        <div>
           <label htmlFor="tipologia">Tipologia</label>
-          <select name="tipologia" id="tipologia">
+          <select
+            name="tipology"
+            id="tipologia"
+            value={searchQueryParameters.tipology}
+            onChange={(e) => handleChange(e)}
+          >
             <option value="t0">T0</option>
             <option value="t1">T1</option>
             <option value="t2">T2</option>
@@ -27,15 +71,27 @@ const Searchbar = () => {
             <option value="t6+">T6+</option>
           </select>
         </div>
-        <div className="budget">
-          <label htmlFor="budget">Preço</label>
-          <input
-            type="range"
-            min="100"
-            max="1000"
-            className="slider"
-            id="myRange"
-          />
+        <div>
+          <label htmlFor="price">Preço</label>
+          <div className={styles.price}>
+            <input
+              name="price"
+              type="range"
+              min="100"
+              max="400"
+              className="slider"
+              id="myRange"
+              onChange={(e) => handleChange(e)}
+            />
+            <p>100 até {searchQueryParameters.price}€</p>
+          </div>
+        </div>
+        <div
+          className={styles.searchIcon}
+          onMouseEnter={handleHover}
+          onMouseLeave={handleHover}
+        >
+          <img src="./assets/search.svg" alt="" />
         </div>
       </div>
     </>

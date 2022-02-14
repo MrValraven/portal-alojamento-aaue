@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Head from "next/head";
 import ListingsBoard from "../components/ListingsBoard/ListingsBoard";
-import Header from "../components/Header/Header";
 import Hero from "../components/Hero/Hero";
 
 /* export const getStaticProps = async () => {

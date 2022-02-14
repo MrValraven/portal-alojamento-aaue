@@ -1,5 +1,24 @@
 @import url("https://use.fontawesome.com/releases/v5.15.2/css/all.css");
 
+@font-face {
+  font-family: "Metropolis";
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  src: local("Metropolis"),
+    url("../public/assets/font/metropolis/Metropolis-Regular.otf")
+      format("opentype");
+}
+@font-face {
+  font-family: "Metropolis";
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+  src: local("Metropolis"),
+    url("../public/assets/font/metropolis/Metropolis-Bold.otf")
+      format("opentype");
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,7 +29,7 @@ body {
   max-width: 2000px;
   margin: 0 auto;
   padding: 0px 50px;
-  font-family: sans-serif;
+  font-family: "Metropolis", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -39,5 +58,4 @@ li {
 
 a {
   text-decoration: none;
-  color: white;
 }

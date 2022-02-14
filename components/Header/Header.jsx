@@ -7,14 +7,21 @@ import styles from "./Header.module.scss";
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
-        <img src="/assets/logo.svg" alt="" />
-      </div>
+      <Link href="/" className={styles.navItem}>
+        <div className={styles.logo}>
+          <img src="/assets/logo.svg" alt="" />
+          <p>Portal do Alojamento</p>
+        </div>
+      </Link>
       <nav>
         <ul>
-          <li>Home</li>
-          <li>Publicações</li>
-          <li>Login / Registar</li>
+          <Link href="/" className={styles.navItem}>
+            Home
+          </Link>
+          <Link href="/anuncios" className={styles.navItem}>
+            Publicações
+          </Link>
+          <li>Login / Registrar</li>
         </ul>
       </nav>
     </header>

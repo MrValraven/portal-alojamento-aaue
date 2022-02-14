@@ -2,19 +2,14 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display: flex;
   flex-direction: column;
-  width: 18%;
+  width: 23%;
   margin-top: 50px;
   border-radius: 10px;
   transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   &:hover {
-    background-color: #151415;
-    color: #e9e6e6;
+    transform: translateY(-5px);
     cursor: pointer;
-
-    .address {
-      color: #e9e6e6;
-    }
   }
 
   img {
