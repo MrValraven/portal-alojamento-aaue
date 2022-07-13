@@ -4,6 +4,7 @@ import Link from "next/link";
 import Button from "../Button/Button";
 
 import styles from "./Form.module.scss";
+import Image from "next/image";
 
 const Form = () => {
   const [formData, setFormData] = useState({
@@ -38,7 +39,7 @@ const Form = () => {
     } else if (isFormDataValid) {
       setIsFormDataValid(false);
     }
-  }, [formData]);
+  }, [formData, isFormDataValid]);
 
   return (
     <form onSubmit={(e) => e.preventDefault()} className={styles.form}>
@@ -58,7 +59,7 @@ const Form = () => {
           onChange={handleChange}
         />
         <span onClick={handleShowPassword}>
-          <img src="./assets/open-eye.svg" alt="" />
+          <Image src="/assets/open-eye.svg" alt="" width="20" height="20" />
           <p>Mostrar</p>
         </span>
       </div>
@@ -68,7 +69,7 @@ const Form = () => {
         buttonText="Iniciar sessão"
       />
       <p className={styles.disclaimer}>
-        Clique em "Inicar sessão" para concordar com os nossos{" "}
+        Clique em &quot;Inicar sessão&quot; para concordar com os nossos{" "}
         <Link href="/">Termos de Serviço</Link> e que a nossa{" "}
         <Link href="/">Politica de Privacidade</Link> se aplica a si!
       </p>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import SearchInput from "../SearchInput/SearchInput";
 import ListingCard from "../ListingCard/ListingCard";
@@ -17,24 +17,27 @@ const AnunciosOverview = () => {
 
   const listings = listingsArray;
 
-  const filterItemsBySearchInput = (itemsArray) => {
-    return itemsArray.filter(
-      (item) =>
-        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.endereco.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.price.toString().includes(searchQuery)
-    );
-  };
+  const filterItemsBySearchInput = useCallback(
+    (itemsArray) => {
+      return itemsArray.filter(
+        (item) =>
+          item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.endereco.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          item.price.toString().includes(searchQuery)
+      );
+    },
+    [searchQuery]
+  );
 
   useEffect(() => {
     if (searchQuery !== "") {
       setAnuncios(filterItemsBySearchInput(listings));
     }
-  }, [searchQuery]);
+  }, [searchQuery, filterItemsBySearchInput, listings]);
   useEffect(() => {
     setAnuncios(listings);
     console.log(listings);
-  }, []);
+  }, [listings, filterItemsBySearchInput]);
 
   return (
     <div className={styles.anunciosOverview}>
